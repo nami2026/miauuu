@@ -73,7 +73,7 @@ function CatBreeds() {
     return (
         <div className="cat-breeds">
             <img src={logo} alt="Logo" className="logo" />
-            <h1 className="title-item">Galería de Gatos</h1>
+            <h1 className="title-itim">Galería de Gatos</h1>
             <div className="filter-container">
                 <select value={selectedCategory} onChange={handleCategoryChange} className="category-filter">
                     <option value="">Todas las razas</option>

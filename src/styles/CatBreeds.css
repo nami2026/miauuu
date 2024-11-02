@@ -9,69 +9,68 @@
 
 .logo {
   position: absolute;
-  top: 10px;
+  top: 5px; /* Mantiene el logo cerca del título */
   right: 10px;
-  width: 15vw; /* Ajusta el tamaño según el ancho de la pantalla */
-  max-width: 300px; /* Limita el tamaño máximo */
-  min-width: 80px; /* Tamaño mínimo en pantallas pequeñas */
+  width: 20vw; /* Aumenta el tamaño según el ancho de la pantalla */
+  max-width: 600px; /* Tamaño máximo aumentado */
+  min-width: 100px; /* Tamaño mínimo en pantallas pequeñas */
   height: auto;
 }
 
-.title-item {
+.title-itim {
   font-family: 'Itim', cursive;
-  font-size: 2.5rem; /* Tamaño inicial */
+  font-size: 5rem; /* Tamaño inicial */
   font-weight: bold;
   color: #333;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   text-align: center; /* Centra el texto */
-  /* Añade media queries para tamaños de pantalla más pequeños */
 }
 
 .filter-container {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: center; /* Centra los elementos */
   align-items: center;
-  gap: 1rem;
+  gap: 1rem; /* Espacio entre los elementos */
   margin-bottom: 2rem;
-  justify-content: center; /* Centra en pantallas pequeñas */
+  width: 100%;
 }
 
 .category-filter {
-  padding: 0.5rem;
-  font-size: 1rem;
+  padding: 1rem; /* Aumenta el padding para hacerlo más grande */
+  font-size: 1.2rem; /* Aumenta el tamaño de la fuente */
   border-radius: 5px;
   border: 1px solid #ccc;
   min-width: 150px;
-  max-width: 300px;
-  width: 40vw; /* Ajuste responsive */
+  max-width: 200px; /* Limita el tamaño máximo del filtro */
+  flex: 1; /* Permite que ocupe espacio igual al de la barra de búsqueda */
 }
 
 .search-bar-container {
   position: relative;
   display: flex;
   align-items: center;
-  width: 100%;
-  max-width: 400px;
+  flex: 1; /* Permite que ocupe espacio igual al del filtro */
+  max-width: 250px; /* Aumenta el tamaño máximo de la barra de búsqueda */
 }
 
-.filter-icon, .search-bar-container .filter-icon {
+.filter-icon {
   position: absolute;
   left: 10px;
-  font-size: 1.2rem;
+  font-size: 1.5rem; /* Aumenta el tamaño del icono */
   color: #333;
 }
 
 .search-bar {
   padding-left: 2rem; /* Espacio para el icono de la manita de gato */
-  height: 2.5rem;
-  font-size: 1rem;
+  height: 3rem; /* Aumenta la altura */
+  font-size: 1.2rem; /* Aumenta el tamaño de la fuente */
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #FFF8F0;
   width: 100%; /* Ocupa todo el ancho disponible */
-  max-width: 400px;
 }
 
+/* Estilo para la contenedor de las razas */
 .breeds-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -87,6 +86,14 @@
   overflow: hidden;
   cursor: pointer;
   transition: transform 0.3s;
+}
+.breed-card h3 {
+  font-size: 1.5rem; /* Aumenta el tamaño de la fuente del título dentro de la tarjeta */
+  margin: 10px; /* Espacio alrededor del título */
+}
+.breed-card p {
+  font-size: 1.1rem; /* Aumenta el tamaño de la fuente de los párrafos dentro de la tarjeta */
+  margin: 5px; /* Espacio alrededor del texto */
 }
 
 .breed-card:hover {
@@ -139,16 +146,43 @@
   border: none;
   cursor: pointer;
 }
+
+/* Estilos para la vista expandida */
+.expanded-view h2,
+.expanded-view p {
+  font-family: 'Itim', cursive; /* Aplica la fuente Itim */
+  color: #333; /* Color del texto, ajusta según sea necesario */
+}
+
+.more-info-link {
+  color: #007BFF; /* Color para el enlace, ajusta si lo deseas */
+  text-decoration: none; /* Quita el subrayado */
+}
+
+.more-info-link:hover {
+  text-decoration: underline; /* Subrayado al pasar el cursor */
+}
+
+/* Media Query para pantallas pequeñas */
 @media (max-width: 768px) {
+  .filter-container {
+    flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+    align-items: stretch; /* Alineación estirada */
+    gap: 0.5rem; /* Espacio entre los elementos */
+  }
+  
   .category-filter,
   .search-bar {
-      font-size: 0.9rem;
-      padding: 0.4rem;
-      width: 80vw; /* Aumenta el ancho en pantallas pequeñas */
+    width: 100%; /* Ocupar todo el ancho en pantallas pequeñas */
+    height: 3rem; /* Mantiene la altura aumentada */
+    font-size: 1.2rem; /* Mantiene el tamaño de fuente */
   }
-
-  .filter-container {
-      flex-direction: column; /* Coloca los elementos en columna */
-      gap: 0.5rem;
+  
+  .category-filter {
+    order: 2; /* Asegura que esté debajo de la barra de búsqueda */
+  }
+  
+  .search-bar-container {
+    order: 1; /* Mantiene la barra de búsqueda arriba */
   }
 }
